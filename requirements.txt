@@ -1,0 +1,9 @@
+blinker
+click
+Flask
+Flask-Cors
+itsdangerous
+Jinja2
+MarkupSafe
+six
+Werkzeug
