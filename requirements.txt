@@ -7,3 +7,9 @@ Jinja2
 MarkupSafe
 six
 Werkzeug
+langchain
+openai
+python-dotenv
+unstructured
+selenium
+libmagic
