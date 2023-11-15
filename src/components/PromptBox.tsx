@@ -51,7 +51,7 @@ const [isLoading, setIsLoading] = useState(false);
     <label htmlFor="url">Site Link:</label>
     <div className="flex h-12 bg-white justify-between rounded-xl">
     <input type="text" id="url" name="url" placeholder="Enter the webpage URL to generate summary" className="h-full bg-transparent rounded-xl p-2 appearance-none caret-blue-500 caret focus:outline-none" />
-    <button type="submit" className="bg-blue-500 w-[150px] h-full hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-xl">{isLoading ?"Generating...": "Generate"}</button>
+    <button disabled={isLoading} type="submit" className={` w-[150px] h-full hover:bg-blue-500 ${isLoading ? "bg-blue-500" : "bg-blue-700"} text-white font-bold py-2 px-4 rounded-xl`}>{isLoading ?"Generating...": "Generate"}</button>
     </div>
     <label htmlFor="apikey">API key:</label>
     <input autoSave="off" type="password" id="apiKey" name="apiKey" placeholder="Enter your Open AI API key" className="h-12 bg-white rounded-xl py-2 px-4 appearance-none caret-blue-500 caret focus:outline-none" />

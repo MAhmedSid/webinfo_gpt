@@ -10,7 +10,6 @@ from langchain.embeddings.openai import OpenAIEmbeddings
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain.chains.summarize import load_summarize_chain
 
-embeddings= OpenAIEmbeddings()
 
 app = Flask(__name__)
 CORS(app)
@@ -18,6 +17,8 @@ CORS(app)
 def get_summary(url,apiKey):
     if apiKey is None:
         return "Please provide your OpenAI API key"
+    
+    embeddings= OpenAIEmbeddings(openai_api_key=apiKey)
     loader = SeleniumURLLoader(urls=[url,])
     data = loader.load()
     splitter = RecursiveCharacterTextSplitter(chunk_size=1000, chunk_overlap=100)
@@ -39,7 +40,6 @@ def getSummary():
     url = data.get("url")
     apiKey = data.get("apiKey")
     res = get_summary(url,apiKey)
-    # print(f'''Summary: {res}''')
     return jsonify({"summary": res})
 
 
