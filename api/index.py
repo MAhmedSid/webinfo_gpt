@@ -2,17 +2,13 @@ from flask import Flask, request, jsonify
 from flask_cors import CORS
 from langchain.document_loaders import SeleniumURLLoader
 from langchain.chat_models import ChatOpenAI
-from dotenv import load_dotenv
+# from dotenv import load_dotenv
 from langchain.document_loaders import SeleniumURLLoader
 from langchain.chat_models import ChatOpenAI
-from dotenv import load_dotenv
 from langchain.llms import OpenAI
 from langchain.embeddings.openai import OpenAIEmbeddings
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain.chains.summarize import load_summarize_chain
-
-
-load_dotenv()
 
 embeddings= OpenAIEmbeddings()
 
