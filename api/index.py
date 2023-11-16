@@ -12,7 +12,8 @@ from langchain.chains.summarize import load_summarize_chain
 
 
 app = Flask(__name__)
-CORS(app)
+CORS(app, origins=['https://websummary.vercel.app', 'http://localhost:3000'])
+
 
 def get_summary(url,apiKey):
     if apiKey is None:
