@@ -1,5 +1,5 @@
 from flask import Flask, request, jsonify
-from flask_cors import CORS
+from flask_cors import CORS, cross_origin
 from langchain.document_loaders import SeleniumURLLoader
 from langchain.chat_models import ChatOpenAI
 # from dotenv import load_dotenv
@@ -36,6 +36,7 @@ def get_summary(url,apiKey):
         return "Please provide the correct API key"    
 
 @app.route("/api/summary", methods=["POST"])
+@cross_origin()
 def getSummary():
     try:
         data = request.get_json()
