@@ -36,12 +36,17 @@ def get_summary(url,apiKey):
 
 @app.route("/api/summary", methods=["POST"])
 def getSummary():
-    data = request.get_json()
-    url = data.get("url")
-    apiKey = data.get("apiKey")
-    res = get_summary(url,apiKey)
-    return jsonify({"summary": res})
+    try:
+        data = request.get_json()
+        url = data.get("url")
+        apiKey = data.get("apiKey")
+        res = get_summary(url,apiKey)
+        print(f'''Response: {res}''')
+        return jsonify({"summary": res})
+    except Exception as e:
+        print(f"Error: {e}")
+        return jsonify({"error": str(e)})
 
 
 if __name__ == "__main__":
-    app.run()
+    app.run(host='0.0.0.0', port=8000,debug=True,request_timeout=600)
